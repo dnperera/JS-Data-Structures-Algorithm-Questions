@@ -13,8 +13,8 @@
 // }
 //using HOF 
 function reverse(str) {
-	return str.split('')
-	.reduce((reversedStr ,str) =>str.concat(reversedStr),'');
+	return str.split('').
+	reduce((reversedStr ,str) =>str.concat(reversedStr),'');
 }
 //ES6 loop solution
 // function reverse(str) {
@@ -35,5 +35,6 @@ function reverse(str) {
 // 	}
 // 	return reversedStr;
 // }
-console.log(reverse('apple'));
+reverse('apple');
+
 module.exports = reverse;
