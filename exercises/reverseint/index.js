@@ -8,6 +8,31 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
-function reverseInt(n) {}
+//I - Input is a number
+//O - Reversed version of the number.
+function reverseInt(n) {
+	let reversedInt = n.toString()
+	.split('')
+	.reverse()
+	.join('');
+	return parseInt(reversedInt)*Math.sign(n);
+}
+
+console.log(reverseInt(189));
+// function reverseInt(n) {
+// 	//if the value of the number less than 10
+// 	if( Math.abs(n)<= 9){
+// 		return n;
+// 	}
+
+// 	var numberArray = n.toString().split('');
+// 	var sign ='';
+
+// 	if(numberArray[0] === '-'){
+// 		sign = numberArray.shift();
+// 	}
+
+// 	return parseInt(sign.concat(numberArray.reverse().join('')));
+// }
 
 module.exports = reverseInt;
