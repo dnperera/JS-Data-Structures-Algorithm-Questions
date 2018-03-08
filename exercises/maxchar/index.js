@@ -11,13 +11,17 @@
 //
 function maxChar(str) {
 	let charObject = {};
-	for (let i = 0; str.length > i; i++) {
-		if (charObject[str[i]]) {
-			charObject[str[i]]++;
-		} else {
-			charObject[str[i]] = 1;
-		}
+
+	for (let char of str) {
+		charObject[char] = charObject[char] + 1 || 1;
 	}
+	// for (let i = 0; str.length > i; i++) {
+	// 	if (charObject[str[i]]) {
+	// 		charObject[str[i]]++;
+	// 	} else {
+	// 		charObject[str[i]] = 1;
+	// 	}
+	// }
 	var maxVal = 0;
 	var repeatChar = '';
 	for (let key in charObject) {
@@ -29,6 +33,6 @@ function maxChar(str) {
 	return repeatChar;
 }
 
-console.log(maxChar('apple 1231111'));
+console.log(maxChar('abcccccccd'));
 
 module.exports = maxChar;
