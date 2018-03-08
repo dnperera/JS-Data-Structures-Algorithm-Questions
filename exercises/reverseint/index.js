@@ -11,14 +11,19 @@
 //I - Input is a number
 //O - Reversed version of the number.
 function reverseInt(n) {
-	let reversedInt = n.toString()
-	.split('')
-	.reverse()
-	.join('');
-	return parseInt(reversedInt)*Math.sign(n);
+	//convert the numbet to  a string
+	let numString = n.toString();
+	return (
+		parseInt(
+			numString
+				.split('')
+				.reverse()
+				.join('')
+		) * Math.sign(n)
+	);
 }
 
-console.log(reverseInt(189));
+console.log(reverseInt(-900));
 // function reverseInt(n) {
 // 	//if the value of the number less than 10
 // 	if( Math.abs(n)<= 9){
