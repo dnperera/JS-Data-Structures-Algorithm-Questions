@@ -33,6 +33,6 @@ function maxChar(str) {
 	return repeatChar;
 }
 
-console.log(maxChar('abcccccccd'));
+console.log(maxChar('abcccccccdx'));
 
 module.exports = maxChar;
