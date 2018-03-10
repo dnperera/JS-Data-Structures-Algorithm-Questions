@@ -14,6 +14,27 @@
 //       ' ### '
 //       '#####'
 
-function pyramid(n) {}
+function pyramid(n) {
+	//Assume no of rows as n
+	//calculate the no of columns
+	var noOfColumns = n * 2 - 1;
+	var middle = Math.floor(noOfColumns / 2);
+
+	//loop through the rows
+	for (let row = 0; row < n; row++) {
+		//loop through the columns
+		var layer = '';
+		for (let column = 0; column < noOfColumns; column++) {
+			if (middle - row <= column && middle + row >= column) {
+				layer += '#';
+			} else {
+				layer += ' ';
+			}
+		}
+		console.log(layer);
+	}
+}
+
+pyramid(11);
 
 module.exports = pyramid;
