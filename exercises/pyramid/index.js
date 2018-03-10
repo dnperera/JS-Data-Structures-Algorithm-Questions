@@ -35,6 +35,52 @@ function pyramid(n) {
 	}
 }
 
-pyramid(11);
+function pyramidRecursice(n, rows = 0, layer = '') {
+	//base case
+	if (n === rows) {
+		return;
+	}
+	//check to see at the end of the row
+	if (layer.length === n * 2 - 1) {
+		console.log(layer);
+		//then move to the next row recursively
+		return pyramidRecursice(n, rows + 1);
+	}
+	//calculate mid point
+	const middle = Math.floor((n * 2 - 1) / 2);
+
+	if (middle - rows <= layer.length && middle + rows >= layer.length) {
+		layer += '#';
+	} else {
+		layer += ' ';
+	}
+	pyramidRecursice(n, rows, layer);
+}
+
+// function pyramidRecursive(n) {
+// 	var noOfColumns = n * 2 - 1;
+// 	var middle = Math.floor(noOfColumns / 2);
+
+// 	function makePyamid(n, rows = 0, layer = '') {
+// 		//base case
+// 		if (n === rows) {
+// 			return;
+// 		}
+// 		if (layer.length === noOfColumns) {
+// 			console.log(layer);
+// 			return makePyamid(n, rows + 1);
+// 		}
+
+// 		if (middle - rows <= layer.length && middle + rows >= layer.length) {
+// 			layer += '#';
+// 		} else {
+// 			layer += ' ';
+// 		}
+// 		makePyamid(n, rows, layer);
+// 	}
+// 	makePyamid(n);
+// }
+
+pyramidRecursice(11);
 
 module.exports = pyramid;
