@@ -11,16 +11,23 @@ function capitalize(str) {
 	return str
 		.split(' ')
 		.map(word => {
-			return makeUpperCase(word);
+			//make first letter captial & return
+			return word[0].toUpperCase().concat(word.slice(1));
 		})
 		.join(' ');
 }
-
-function makeUpperCase(word) {
-	var charArray = word.split('');
-	charArray[0] = charArray[0].toUpperCase();
-	return charArray.join('');
+//solution -2
+function capitalizeV2(str) {
+	var result = str[0].toUpperCase();
+	for (let i = 1; i < str.length; i++) {
+		if (str[i - 1] === ' ') {
+			result = result.concat(str[i].toUpperCase());
+		} else {
+			result = result.concat(str[i]);
+		}
+	}
+	return result;
 }
+console.log(capitalizeV2('look, it is working!'));
 
-console.log(capitalize('a short sentence'));
 module.exports = capitalize;
