@@ -27,8 +27,9 @@ function vowels(str) {
 //Solution -2
 function vowelsV2(str) {
 	//using Reg expression find all vowels in the string
-	return str.match(/[aeiou]/gi).length;
+	const vowelsArray = str.match(/[aeiou]/gi);
+	return vowelsArray ? vowelsArray.length : 0;
 }
 
-console.log(vowelsV2('Why do you ask?'));
+console.log(vowelsV2('Why?'));
 module.exports = vowels;
