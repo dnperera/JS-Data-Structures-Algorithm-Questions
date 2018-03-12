@@ -17,11 +17,18 @@ function vowels(str) {
 	var counter = 0;
 	//loop throw the string
 	for (let i = 0; i < str.length; i++) {
-		if (vowelsArray.indexOf(str[i]) >= 0) {
+		if (vowelsArray.includes(str[i])) {
 			counter++;
 		}
 	}
 	return counter;
 }
-console.log(vowels('Why do you ask?'));
+
+//Solution -2
+function vowelsV2(str) {
+	//using Reg expression find all vowels in the string
+	return str.match(/[aeiou]/gi).length;
+}
+
+console.log(vowelsV2('Why do you ask?'));
 module.exports = vowels;
