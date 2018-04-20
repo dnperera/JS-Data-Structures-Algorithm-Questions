@@ -13,6 +13,7 @@
 //       '  #  '
 //       ' ### '
 //       '#####'
+//
 
 function pyramid(n) {
 	//Assume no of rows as n
