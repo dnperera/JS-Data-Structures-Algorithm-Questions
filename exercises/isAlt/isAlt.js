@@ -22,12 +22,12 @@ isAlt = word => {
 	for (let i = 0; word.length - 1 > i; i++) {
 		if (vowels[word[i]] && vowels[word[i + 1]]) {
 			isInOrder = false;
-			return;
+			break;
 		}
 
 		if (!vowels[word[i]] && !vowels[word[i + 1]]) {
 			isInOrder = false;
-			return;
+			break;
 		}
 	}
 	return isInOrder;
