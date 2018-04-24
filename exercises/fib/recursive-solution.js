@@ -16,5 +16,6 @@ function fib(n) {
 }
 
 console.log(fib(7));
+//-- Time Complexity - Exponential 2^n
 
 module.exports = fib;
