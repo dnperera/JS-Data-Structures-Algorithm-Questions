@@ -8,18 +8,6 @@
 // Example:
 //   fib(4) === 3
 
-// function fib(n) {
-// 	const results = [0, 1];
-
-// 	for (let i = 2; i <= n; i++) {
-// 		let a = results[i - 1];
-// 		let b = results[i - 2];
-// 		results.push(a + b);
-// 	}
-// 	return results[n];
-// }
-// //-- Time Complexity - Liner O(n)
-
 function memoize(fn) {
 	const cache = {};
 
