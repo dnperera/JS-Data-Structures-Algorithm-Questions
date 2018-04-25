@@ -12,33 +12,32 @@ reverseVowels("why try, shy fly?"); // "why try, shy fly?"
 
 reverseVowels = word => {
 	var vowelObject = {
-		a: 1,
-		e: 1,
-		i: 1,
-		o: 1,
-		u: 1,
+		a: true,
+		e: true,
+		i: true,
+		o: true,
+		u: true,
 	};
 	var wordArray = word.split('');
-	var reversedArray = new Array(word.length);
 	var tailPointer = word.length - 1;
+	var headPointer = 0;
 
-	for (let i = 0; wordArray.length > i; i++) {
-		if (vowelObject[wordArray[i]]) {
-			for (let j = tailPointer; j > 0; j--) {
-				if (vowelObject[wordArray[j]]) {
-					let temp = wordArray[i];
-					reversedArray[i] = wordArray[j];
-					reversedArray[j] = temp;
-					tailPointer = j;
+	while (headPointer < word.length) {
+		if (vowelObject[wordArray[headPointer].toLowerCase()] && headPointer <= tailPointer) {
+			for (let i = tailPointer; i > 0; i--) {
+				if (vowelObject[wordArray[i].toLowerCase()]) {
+					let temp = wordArray[headPointer];
+					wordArray[headPointer] = wordArray[i];
+					wordArray[i] = temp;
+					tailPointer = i - 1;
 					break;
 				}
 			}
-		} else {
-			reversedArray[i] = wordArray[i];
 		}
+		headPointer++;
 	}
-	return reversedArray.join('');
+	return wordArray.join('');
 };
 
-console.log(reverseVowels('Reverse Vowels In A String'));
-// "RivArsI Vewols en e Streng"
+console.log(reverseVowels('why try, shy fly?')); // "why try, shy fly?"
+
