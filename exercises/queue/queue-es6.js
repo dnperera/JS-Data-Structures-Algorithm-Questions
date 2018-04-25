@@ -1,12 +1,12 @@
 class Queue {
-	consturctor() {
+	constructor() {
 		this.front = 0;
 		this.back = 0;
 		this.storage = {};
 	}
 
 	size() {
-		return this.storage;
+		return Object.keys(this.storage).length;
 	}
 
 	enqueue(value) {
@@ -23,17 +23,10 @@ class Queue {
 		}
 		return undefined;
 	}
+
+	peek() {
+		return this.storage[this.front];
+	}
 }
 
-var queue = new Queue();
 
-console.log(queue.size());
-
-console.log(queue.dequeue());
-queue.enqueue('Dayan');
-queue.enqueue('Hasini');
-queue.enqueue('Dasith');
-
-console.log(queue);
-// console.log(queue.dequeue());
-// console.log(queue);
