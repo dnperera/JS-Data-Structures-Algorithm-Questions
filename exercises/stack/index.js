@@ -38,6 +38,8 @@ class Stack {
 		return this.data[this.count - 1];
 	}
 
+	//Create a contains method to check if a value is in the stack:
+	//Time Complexity - Linear
 	contains(record) {
 		const holdingStack = new Stack();
 		let temp = '';
