@@ -25,3 +25,5 @@ Queue.prototype.dequeue = function() {
 Queue.prototype.peek = function() {
 	return this.storage[this.front];
 };
+
+module.exports Queue;

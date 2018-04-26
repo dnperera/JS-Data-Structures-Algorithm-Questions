@@ -68,12 +68,11 @@ class Stack {
 	}
 }
 
-// const s = new Stack(5);
-// s.push('Dayan');
+//const s = new Stack(5);
+//s.push(4);
 // s.push('Hasini');
 // s.push('Denith');
 // s.push('Dasith');
-
 // console.log(s.contains('Denith'));
 // console.log(s);
 module.exports = Stack;
