@@ -10,9 +10,28 @@
 // Assumtion - Input is not an empty string
 //
 function maxChar(str) {
-	let charObject = {};
-
-	for (let char of str) {
+  let charObject = {};
+  let length = str.length;
+  if (length === 1) {
+    return str;
+  }
+  //map the characters in the string to an object
+  for (let i = 0; i < length; i++) {
+    charObject[str[i]] = ++charObject[str[i]] || 1;
+  }
+  //iterate the object for max value and return the key
+  let maxVal = 0;
+  let maxKey = "";
+  for (let key in charObject) {
+    if (maxVal < charObject[key]) {
+      maxVal = charObject[key];
+      maxKey = key;
+    }
+  }
+  return maxKey;
+}
+/**
+ * for (let char of str) {
 		charObject[char] = charObject[char] + 1 || 1;
 	}
 	// for (let i = 0; str.length > i; i++) {
@@ -31,8 +50,7 @@ function maxChar(str) {
 		}
 	}
 	return repeatChar;
-}
-
-console.log(maxChar('abcccccccdx'));
+ */
+console.log(maxChar("abcccccccdx"));
 
 module.exports = maxChar;

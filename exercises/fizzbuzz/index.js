@@ -18,37 +18,48 @@
 //	For multiples of five print as "buzz"
 //	For multiples of three & five print as "fizzbuzz"
 function fizzBuzz(n) {
-	for (let i = 1; n >= i; i++) {
-		//if the number multiple of 3 and 5
-		if (i % 3 === 0 && i % 5 === 0) {
-			console.log('fizzbuzz');
-			continue;
-		}
-		//if the number multiple of 3
-		if (i % 3 === 0) {
-			console.log('fizz');
-			continue;
-		}
-		//if the number multiple of 5
-		if (i % 5 === 0) {
-			console.log('buzz');
-			continue;
-		}
-		//for all other numbers
-		console.log(i);
-	}
+  for (let i = 1; i <= n; i++) {
+    i % 15 === 0
+      ? console.log("fizzbuzz")
+      : i % 5 === 0
+      ? console.log("buzz")
+      : i % 3 === 0
+      ? console.log("fizz")
+      : console.log(i);
+  }
+  // for (let i = 1; n >= i; i++) {
+  // 	//if the number multiple of 3 and 5
+  // 	if (i % 3 === 0 && i % 5 === 0) {
+  // 		console.log('fizzbuzz');
+  // 		continue;
+  // 	}
+  // 	//if the number multiple of 3
+  // 	if (i % 3 === 0) {
+  // 		console.log('fizz');
+  // 		continue;
+  // 	}
+  // 	//if the number multiple of 5
+  // 	if (i % 5 === 0) {
+  // 		console.log('buzz');
+  // 		continue;
+  // 	}
+  // 	//for all other numbers
+  // 	console.log(i);
+  // }
 }
 
 //ES 6 version
 
 function fizzBuzzES6(n) {
-	for (let i = 1; i <= n; i++) {
-		i % 15 === 0
-			? console.log('fizzbuzz')
-			: i % 5 === 0
-				? console.log('buzz')
-				: i % 3 === 0 ? console.log('fizz') : console.log(i);
-	}
+  for (let i = 1; i <= n; i++) {
+    i % 15 === 0
+      ? console.log("fizzbuzz")
+      : i % 5 === 0
+      ? console.log("buzz")
+      : i % 3 === 0
+      ? console.log("fizz")
+      : console.log(i);
+  }
 }
 
 fizzBuzzES6(20);

@@ -8,13 +8,17 @@
 //   palindrome("abcdefg") === false
 
 function palindrome(str) {
-	return (
-		str ===
-		str
-			.split('')
-			.reverse()
-			.join('')
-	);
+  // return (
+  //   str ===
+  //   str
+  //     .split("")
+  //     .reverse()
+  //     .join("")
+  // );
+  let length = str.length;
+  return str.split("").every((char, index) => {
+    return char === str[length - index - 1];
+  });
 }
 
 // Second solution using HOF
@@ -25,5 +29,5 @@ function palindrome(str) {
 // 	})
 // }
 
-console.log(palindrome('abba'));
+console.log(palindrome("abba"));
 module.exports = palindrome;
