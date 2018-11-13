@@ -8,28 +8,29 @@
 //   vowels('Why?') --> 0
 
 function vowels(str) {
-	//define an array with Vowels
-	var vowelsArray = ['a', 'e', 'i', 'o', 'u'];
-
-	//make the string to lower case
-	str = str.toLowerCase();
-	//define the counter
-	var counter = 0;
-	//loop throw the string
-	for (let i = 0; i < str.length; i++) {
-		if (vowelsArray.includes(str[i])) {
-			counter++;
-		}
-	}
-	return counter;
+  const pattern = /[aeiou]/gi;
+  return str.match(pattern) ? str.match(pattern).length : 0;
+  // //define an array with Vowels
+  // var vowelsArray = ['a', 'e', 'i', 'o', 'u'];
+  // //make the string to lower case
+  // str = str.toLowerCase();
+  // //define the counter
+  // var counter = 0;
+  // //loop throw the string
+  // for (let i = 0; i < str.length; i++) {
+  // 	if (vowelsArray.includes(str[i])) {
+  // 		counter++;
+  // 	}
+  // }
+  // return counter;
 }
 
 //Solution -2
 function vowelsV2(str) {
-	//using Reg expression find all vowels in the string
-	const vowelsArray = str.match(/[aeiou]/gi);
-	return vowelsArray ? vowelsArray.length : 0;
+  //using Reg expression find all vowels in the string
+  const vowelsArray = str.match(/[aeiou]/gi);
+  return vowelsArray ? vowelsArray.length : 0;
 }
 
-console.log(vowelsV2('Why?'));
+console.log(vowels("Why?"));
 module.exports = vowels;

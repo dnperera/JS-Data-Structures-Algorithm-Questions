@@ -10,7 +10,7 @@
 function capitalize(str) {
   //create an array of words
   const words = str.split(" ");
-  //map the array while making first letter capital
+  //map the array while making first letter capital and join
   return words
     .map(word => word[0].toUpperCase().concat(word.slice(1)))
     .join(" ");
