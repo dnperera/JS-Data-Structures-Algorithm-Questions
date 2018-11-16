@@ -8,27 +8,50 @@
 // Example:
 //   fib(4) === 3
 
+//Implement Memoization
 function memoize(fn) {
-	const cache = {};
-
-	return function(...args) {
-		if (cache[args]) {
-			return cache[args];
-		}
-
-		const result = fn.apply(this, args);
-		cache[args] = result;
-		return result;
-	};
+  const cacheResults = {};
+  return function(...args) {
+    const argString = args.toString();
+    if (cacheResults[argString]) {
+      return cacheResults[argString];
+    }
+    let results = fn.apply(this, args);
+    cacheResults[argString] = results;
+    return results;
+  };
+}
+//fibonacci recursive
+function fibRecursive(n) {
+  if (n < 2) {
+    return n;
+  }
+  return fib(n - 1) + fib(n - 2);
 }
 
-function slowFib(n) {
-	if (n < 2) {
-		return n;
-	}
-	return fib(n - 1) + fib(n - 2);
-}
+// function memoize(fn) {
+// 	const cache = {};
 
-const fib = memoize(slowFib);
+// 	return function(...args) {
+// 		if (cache[args]) {
+// 			return cache[args];
+// 		}
 
+// 		const result = fn.apply(this, args);
+// 		cache[args] = result;
+// 		return result;
+// 	};
+// }
+
+// function fib(n) {
+//   if (n < 2) {
+//     return n;
+//   }
+//   return fib(n - 1) + fib(n - 2);
+// }
+
+const fib = memoize(fibRecursive);
+// console.time("Recursive");
+// console.log(fib(50));
+// console.timeEnd("Recursive");
 module.exports = fib;

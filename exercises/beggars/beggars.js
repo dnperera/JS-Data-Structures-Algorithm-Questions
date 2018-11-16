@@ -14,21 +14,38 @@ Not all beggars have to take the same amount of "offers", meaning that the lengt
  beggars([1,2,3,4,5],0) // []
 
  */
-
-beggars = (offers, noOfBeggars) => {
-	var totals = [];
-
-	for (let i = 0; noOfBeggars > i; i++) {
-		let totalCollected = 0;
-		for (let j = i; offers.length > j; ) {
-			if (offers[j]) {
-				totalCollected += offers[j];
-			}
-			j += noOfBeggars;
-		}
-		totals.push(totalCollected);
-	}
-	return totals;
+const beggars = (offers, noOfBeggars) => {
+  const totals = [];
+  //run the turns for beggars
+  for (let i = 0; noOfBeggars > i; i++) {
+    let sum = 0;
+    //iterate the collection array for each begger with respective turn
+    for (let j = i; offers.length > j; ) {
+      sum += offers[j];
+      j += noOfBeggars;
+    }
+    totals.push(sum);
+  }
+  return totals;
 };
-console.log(beggars([1, 2, 3, 4, 5], 6));
-// [5,7,3]
+// beggars = (offers, noOfBeggars) => {
+// 	var totals = [];
+
+// 	for (let i = 0; noOfBeggars > i; i++) {
+// 		let totalCollected = 0;
+// 		for (let j = i; offers.length > j; ) {
+// 			if (offers[j]) {
+// 				totalCollected += offers[j];
+// 			}
+// 			j += noOfBeggars;
+// 		}
+// 		totals.push(totalCollected);
+// 	}
+// 	return totals;
+// };
+
+console.log(beggars([1, 2, 3, 4, 5], 1)); // [15]
+console.log(beggars([1, 2, 3, 4, 5], 2)); // [9,6]
+console.log(beggars([1, 2, 3, 4, 5], 3)); // [5,7,3]
+console.log(beggars([1, 2, 3, 4, 5], 6)); // [1,2,3,4,5,0]
+console.log(beggars([1, 2, 3, 4, 5], 0)); // []

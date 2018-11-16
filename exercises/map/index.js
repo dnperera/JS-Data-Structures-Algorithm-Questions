@@ -60,4 +60,3 @@ var Person = (function() {
 var p = new Person("Dasith");
 
 console.log(p.getName());
-console.log(p.name);
